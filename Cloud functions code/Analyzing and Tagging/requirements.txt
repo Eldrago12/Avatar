@@ -1,0 +1,6 @@
+azure-storage-blob
+azure-cosmos
+requests
+msrest
+azure-identity
+azure-cognitiveservices-vision-customvision

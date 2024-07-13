@@ -1,0 +1,4 @@
+openai==0.7.0
+flask==2.0.1
+requests==2.25.1
+msrest==0.7.1

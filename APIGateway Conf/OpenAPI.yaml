@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: Image Processing API
+  version: 1.0.0
+paths:
+  /process_prompt:
+    post:
+      summary: Process prompt and extract keywords
+      operationId: processPrompt
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keywords:
+                    type: array
+                    items:
+                      type: string
+      x-google-backend:
+        address: https://REGION-PROJECT_ID.cloudfunctions.net/process_prompt
+
+  /compose_image:
+    post:
+      summary: Get the final composed image URL
+      operationId: finalImage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image_url:
+                  type: string
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  image_url:
+                    type: string
+      x-google-backend:
+        address: https://REGION-PROJECT_ID.cloudfunctions.net/compose_image
